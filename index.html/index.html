@@ -1,30 +1,94 @@
-<style>
-<body> { font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-; margin: auto;
-padding: 20px;
-display: flex;
-flex-direction: column-reverse;
-gap: 20px;
-background-color: aqua;} header,nav,article,footer {
-    padding: 20px;
-    border: 3px solid #f1f1f1;
-    border: radius 5px;
-    margin: auto;
-} </style>
-    <header>
-        <h1>Header</h1>
-    </header>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Layout Sederhana</title>
+  <style>
+    body {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column; /* ganti ke 'column-reverse' jika ingin urutan terbalik */
+      gap: 20px;
+      background-color: aqua;
+    }
 
-    <div class="container">
-        <nav>
-            <h2>Navigation</h2>
-            <ul>
-                <li>Link 1</li>
-                <li>Link 2</li>
-                <li>Link 3</li>
-            </ul>
-        </nav>
+    /* Tetap gunakan selector gabungan seperti di kode awal */
+    header, nav, article, footer {
+      padding: 20px;
+      border: 3px solid #f1f1f1;
+      border-radius: 5px;          /* diperbaiki dari 'border: radius 5px' */
+      margin: auto;                /* dipertahankan biar mirip */
+      background: #fff;
+      width: 100%;
+      max-width: 1200px;
+    }
 
+    .container {
+      display: flex;               /* mirip gaya awal, tetap Flexbox */
+      gap: 20px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    nav {
+      flex: 0 0 280px;             /* sidebar lebar tetap */
+    }
+
+    .articles {
+      flex: 1 1 auto;
+      display: flex;               /* artikel juga pakai flex kolom */
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .container { flex-direction: column; }
+      nav { flex-basis: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Header</h1>
+  </header>
+
+  <div class="container">
+    <nav>
+      <h2>Navigation</h2>
+      <ul>
+        <li>Link 1</li>
+        <li>Link 2</li>
+        <li>Link 3</li>
+      </ul>
+    </nav>
+
+    <main class="articles">
+      <article>
+        <h2>Article 1</h2>
+        <p>Konten artikel pertama...</p>
+      </article>
+      <article>
+        <h2>Article 2</h2>
+        <p>Konten artikel kedua...</p>
+      </article>
+      <article>
+        <h2>Article 3</h2>
+        <p>Konten artikel ketiga...</p>
+      </article>
+    </main>
+  </div>
+
+  <footer>
+    <p>Footer</p>
+  </footer>
+
+</body>
+</html>
         <main class="articles">
             <article>
                 <h2>Article 1</h2>
